@@ -31,3 +31,40 @@ body {
     text-wrap: balance;
   }
 }
+
+  @font-face {
+    font-family: 'Futura-Bold';
+    src: url('./assets/fonts/futura/FuturaPTBold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura';
+    src: url('./assets/fonts/futura/FuturaPTBook.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura-Semi';
+    src: url('./assets/fonts/futura/FuturaPTDemi.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura-ExtraBold';
+    src: url('./assets/fonts/futura/FuturaPTExtraBold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura-Heavy';
+    src: url('./assets/fonts/futura/FuturaPTHeavy.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura-Light';
+    src: url('./assets/fonts/futura/FuturaPTLight.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Futura-Medium';
+    src: url('./assets/fonts/futura/FuturaPTMedium.otf') format('opentype');
+  }
+
+.button {
+  @apply px-4 py-2 rounded-full font-futura-semi
+}
+
+.button_primary {
+  @apply border-2 rounded-full px-3 py-2 font-futura-semi
+}
