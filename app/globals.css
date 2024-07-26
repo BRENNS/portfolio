@@ -68,3 +68,20 @@ body {
 .button_primary {
   @apply border-2 rounded-full px-3 py-2 font-futura-semi
 }
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.animate-disappear {
+  animation: disappear 1s forwards; /* Adjust the duration as needed */
+}

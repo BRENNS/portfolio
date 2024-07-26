@@ -1,41 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: {
-  plugins: any[];
-  theme: {
-    extend: {
-      fontFamily: {
-        "futura-bold": string[];
-        "futura-light": string[];
-        avenir: string[];
-        "futura-semi": string[];
-        "avenir-bold": string[];
-        futura: string[];
-        "futura-medium": string[];
-        arcade: string[];
-        "futura-extra": string[];
-        "avenir-it": string[];
-      };
-      backgroundImage: { "gradient-conic": string; "gradient-radial": string };
-      colors: {
-        shark: {
-          "100": string;
-          "200": string;
-          "300": string;
-          "400": string;
-          "950": string;
-          "500": string;
-          "600": string;
-          "700": string;
-          "800": string;
-          "900": string;
-          "50": string;
-        };
-      };
-    };
-  };
-  content: string[];
-} = {
+const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -43,6 +8,15 @@ const config: {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fly: {
+          "0%": { transform: "translateY(0.1em)" },
+          "100%": { transform: "translateY(-0.1em)" },
+        },
+      },
+      animation: {
+        fly: "fly 0.5s ease-in-out infinite alternate",
+      },
       fontFamily: {
         futura: ["Futura", "sans-serif"],
         "futura-bold": ["Futura-Bold", "sans-serif"],
@@ -79,4 +53,5 @@ const config: {
   },
   plugins: [],
 };
+
 export default config;

@@ -26,6 +26,7 @@ const Experience = () => {
           job={"Front-end developer"}
           color={"#980000"}
           picture={flatway}
+          url={"https://www.flatway.fr/"}
         >
           <span
             className={"flex h-4/6 w-full items-center justify-center relative"}
@@ -46,6 +47,7 @@ const Experience = () => {
           color={"#f9d564"}
           picture={lettre}
           job={"Front-end developer"}
+          url={"https://1lettre1sourire.org/"}
         >
           <Image
             src={facteur}
@@ -63,11 +65,13 @@ const ExperienceCard = ({
   picture,
   job,
   children,
+  url,
 }: {
   color: string;
   picture: string;
   job: string;
   children: JSX.Element;
+  url: string;
 }) => {
   const colorWithOpacity = hexToRgba(color, 0.1);
 
@@ -84,7 +88,7 @@ const ExperienceCard = ({
         />
         <span className={"h-[20%] w-full flex flex-col gap-2 items-center"}>
           <p className={"text-lg font-semibold"}>{job}</p>
-          <ul className={"flex gap-4"}>
+          <ul className={"flex items-center gap-4"}>
             <li>
               <button
                 style={{ backgroundColor: color }}
@@ -94,12 +98,14 @@ const ExperienceCard = ({
               </button>
             </li>
             <li>
-              <button
+              <a
+                href={url}
+                target={"_blank"}
                 style={{ color: color, borderColor: color }}
-                className={`button_primary hover:bg-[${color}] hover:text-white`}
+                className={`button_primary hover:bg-[${color}] h-auto hover:text-white`}
               >
                 Visiter
-              </button>
+              </a>
             </li>
           </ul>
         </span>
