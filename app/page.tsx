@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative w-full flex flex-col ${display ? "bg-slate-50 h-fit" : "bg-white h-screen"} overflow-x-hidden justify-center items-center`}
+      className={`relative w-full flex flex-col text-black ${display ? "bg-slate-50 h-fit" : "bg-white h-screen"} overflow-x-hidden justify-center items-center`}
     >
       <Navbar display={display} Sections={Sections} />
       <IntroBackground display={display} />

@@ -111,16 +111,15 @@ const ExperienceCard = ({
       >
         <p className={"font-futura-semi"}>{description}</p>
         <ul className={"flex gap-4"}>
-          {languages.map(({ src, name }) => (
-            <li key={name} className={"flex flex-col items-center"}>
+          {languages.map((item, index) => (
+            <li key={index} className={"flex flex-col items-center"}>
               <Image
-                src={src}
-                alt={name}
+                src={item as string}
+                alt={index + "language"}
                 className={"h-14 w-14"}
                 width={"14"}
                 height={"14"}
               />
-              <span className={"font-futura"}>{name}</span>
             </li>
           ))}
         </ul>
@@ -128,8 +127,8 @@ const ExperienceCard = ({
 
       <header className={"h-1/6 flex flex-col gap-4 justify-center"}>
         <Image
-          src={picture}
-          alt={picture}
+          src={picture as string}
+          alt={job}
           className={"h-[80%]  object-scale-down"}
         />
         <span className={"h-[20%] w-full flex flex-col gap-2 items-center"}>
