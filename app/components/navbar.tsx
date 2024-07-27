@@ -10,7 +10,7 @@ const NavBar = ({
   Sections,
 }: {
   display: boolean;
-  Sections: [{ name: string; component: JSX.Element }];
+  Sections: { name: string; component: JSX.Element }[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const mappedItems = Sections.map(({ name, component }) => {

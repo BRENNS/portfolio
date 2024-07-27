@@ -1,5 +1,5 @@
-export function hexToRgba(hex, opacity) {
-  let c;
+export function hexToRgba(hex: string, opacity: number) {
+  let c: any;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
     c = hex.substring(1).split("");
     if (c.length === 3) {
