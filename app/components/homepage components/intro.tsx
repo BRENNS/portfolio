@@ -56,7 +56,7 @@ const Intro = () => {
             <h2>Hi, my name is</h2>
             <h1 className={"text-3xl"}>Steven Dong</h1>
             <span className={"flex text-xl gap-1"}>
-              <p>and I'm a</p>
+              <p>and I&apos;m a</p>
               <Typewriter
                 options={{
                   strings: ["Front-end developer", "French student"],

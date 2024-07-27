@@ -18,7 +18,7 @@ import Jenkins from "@/app/assets/languages/jenkins.svg";
 import Kubernetes from "@/app/assets/languages/kubernets.svg";
 import haskell from "@/app/assets/languages/haskell.svg";
 import rust from "@/app/assets/languages/rust.svg";
-import Area from "@/app/assets/projects/area.png";
+import Area from "@/app/assets/projects/Area.png";
 import Aleph from "@/app/assets/projects/aleph.png";
 import Whanos from "@/app/assets/projects/whanos.png";
 import Glados from "@/app/assets/projects/glados.webp";

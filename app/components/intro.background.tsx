@@ -26,7 +26,7 @@ function DisplayImage() {
     }, 150);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div>
