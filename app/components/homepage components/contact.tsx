@@ -16,12 +16,16 @@ const Contact = () => {
   } = useContact();
 
   return (
-    <section className={"h-full w-full px-[10%] pb-[10%]"}>
-      <div className={"w-full bg-slate-50 rounded-xl flex h-full"}>
+    <section className={"h-auto lg:h-full w-full px-[10%] pb-[10%]"}>
+      <div
+        className={
+          "w-full bg-slate-50 rounded-xl flex lg:flex-row flex-col h-fit lg:h-full"
+        }
+      >
         <ContactSideContent />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className={"w-1/2 h-full flex flex-col justify-center"}
+          className={"w-full lg:w-1/2 h-full flex flex-col justify-center"}
         >
           <fieldset>
             <ContactInput
@@ -51,7 +55,9 @@ const Contact = () => {
 const ContactSideContent = () => {
   return (
     <aside
-      className={"w-1/2 h-full flex flex-col items-center justify-between"}
+      className={
+        "w-full lg:w-1/2 h-full flex flex-col items-center justify-between"
+      }
     >
       <div></div>
       <header>
