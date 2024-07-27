@@ -1,4 +1,3 @@
-import projects from "@/app/components/homepage components/projects";
 import * as assets from "@/app/assets/languages";
 
 export type project = {

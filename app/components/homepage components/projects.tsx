@@ -4,7 +4,7 @@ import {
   ProjectList,
   projectPictures,
 } from "@/app/interfaces/projects";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import * as assets from "@/app/assets/languages/index";
 import { useRef, useState } from "react";
 
@@ -17,7 +17,7 @@ const Projects = () => {
 
   const extractTags = (projects: project[]) => {
     const allTags = projects.flatMap((project) => project.tags);
-    const uniqueTags = [...new Set(allTags)];
+    const uniqueTags = Array.from(new Set(allTags));
     return uniqueTags;
   };
 
@@ -70,6 +70,9 @@ const Projects = () => {
           style={{ cursor: isDragging.current ? "grabbing" : "grab" }}
         >
           {ProjectList.map(({ name, description, techno, tags }, index) => {
+            const picture = projectPictures.find(
+              (picture) => picture.name === name,
+            )?.src;
             if (
               activeTags.length > 0 &&
               !tags.some((tag) => activeTags.includes(tag))
@@ -86,10 +89,7 @@ const Projects = () => {
               >
                 <div className={"bg-slate-50 h-72 w-full rounded-xl"}>
                   <Image
-                    src={
-                      projectPictures.find((picture) => picture.name === name)
-                        ?.src
-                    }
+                    src={picture as StaticImageData}
                     className={`h-full w-full object-cover select-none pointer-events-none ${name === "Arcade" ? "object-left" : ""} rounded-xl`}
                     alt={name}
                   />
@@ -128,7 +128,7 @@ const DisplayProjectInformations = ({
         {techno.map((item, index) => (
           <div className={"h-full w-10"} key={index}>
             <Image
-              src={languages.find((lang) => lang.name === item)?.src}
+              src={languages.find((lang) => lang.name === item)?.src as string}
               className={"object-contain h-full w-full"}
               alt={name}
             />
@@ -168,7 +168,7 @@ const DisplayFilter = ({
             <button
               onClick={() => {
                 if (activeTags.includes(tag)) {
-                  setActiveTags(activeTags.filter((t: boolean) => t !== tag));
+                  setActiveTags(activeTags.filter((t) => t !== tag));
                 } else {
                   setActiveTags([...activeTags, tag]);
                 }
