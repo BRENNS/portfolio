@@ -41,7 +41,7 @@ const Projects = () => {
     if (!isDragging.current) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current!.offsetLeft;
-    const walk = x - startX.current; // Ajustez le facteur de défilement si nécessaire
+    const walk = x - startX.current;
     scrollContainerRef.current!.scrollLeft = scrollLeft.current - walk;
   };
 
