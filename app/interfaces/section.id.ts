@@ -1,7 +1,7 @@
 export const enum SectionId {
-  intro = "intro",
-  skills = "skills",
-  experience = "experiences",
-  projects = "projects",
-  contact = "contact",
+  intro = "Introduction",
+  skills = "Compétences",
+  experience = "Expérience",
+  projects = "Projets",
+  contact = "Contact",
 }

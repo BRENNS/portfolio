@@ -1,20 +1,17 @@
 import Image from "next/image";
-import logo from "@/app/assets/s-logo.svg";
+import logo from "@/public/assets/s-logo.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
 const NavBar = ({
-  display,
   Sections,
 }: {
-  display: boolean;
   Sections: { name: string; component: JSX.Element }[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const mappedItems = Sections.map(({ name, component }) => {
-    console.log(name);
     return (
       <li key={name}>
         <AnchorLink href={`#${name}`} offset={"64px"} className="all_unset">
@@ -29,7 +26,7 @@ const NavBar = ({
 
   return (
     <nav
-      className={`fixed ${isOpen ? "h-fit flex-col" : "h-14"} z-50 justify-between items-center transition-all flex duration-300 ${display ? "translate-y-28" : ""} -top-20 w-5/6 lg:w-3/4 rounded-xl bg-slate-50 bg-opacity-60 backdrop-blur-sm`}
+      className={`fixed ${isOpen ? "h-fit flex-col" : "h-14"} z-50 justify-between items-center transition-all flex duration-300 top-4 w-5/6 lg:w-3/4 rounded-xl bg-slate-50 bg-opacity-60 backdrop-blur-sm left-1/2 -translate-x-1/2`}
     >
       <div className={"flex w-full justify-between items-center"}>
         <Image
