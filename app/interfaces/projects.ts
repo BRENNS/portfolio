@@ -1,4 +1,4 @@
-import * as assets from "@/app/assets/languages";
+import * as assets from "@/public/assets/languages";
 
 export type project = {
   name: string;
@@ -10,45 +10,45 @@ export type project = {
 export const ProjectList: project[] = [
   {
     name: "Area",
-    description: "Zappier like application",
+    description: "Application similaire à Zapier",
     techno: ["React", "Flutter", "Nest.js"],
     tags: ["Frontend", "Backend", "DevOps"],
   },
   {
     name: "Aleph Hackaton",
-    description: "A simple hackaton project",
+    description: "Un simple projet de hackathon",
     techno: ["React", "Tailwind"],
     tags: ["Frontend", "Blockchain"],
   },
   {
     name: "Whanos",
-    description: "A simple CI/CD to deploy a project on a kubernetes cluster.",
+    description: "Un simple CI/CD pour déployer un projet sur un cluster Kubernetes.",
     techno: ["Docker", "Kubernetes", "Jenkins"],
     tags: ["DevOps"],
   },
   {
     name: "Glados",
-    description: "Own language parser and interpreter in Haskell.",
+    description: "Analyseur et interpréteur de langage propriétaire en Haskell.",
     techno: ["Haskell"],
-    tags: ["Functional programming"],
+    tags: ["Programmation fonctionnelle"],
   },
   {
     name: "Image compressor",
-    description: "A simple image compressor in Haskell",
+    description: "Un simple compresseur d'images en Haskell",
     techno: ["Haskell"],
-    tags: ["Functional programming"],
+    tags: ["Programmation fonctionnelle"],
   },
   {
     name: "Arcade",
-    description: "A simple game engine in C++",
+    description: "Un simple moteur de jeu en C++",
     techno: ["C++"],
-    tags: ["Game development", "Object-Oriented Programming"],
+    tags: ["Développement de jeux", "Programmation orientée objet"],
   },
   {
     name: "RayTracer",
-    description: "A simple raytracer in Rust",
+    description: "Un simple raytracer en Rust",
     techno: ["Rust"],
-    tags: ["Object-Oriented Programming"],
+    tags: ["Programmation orientée objet"],
   },
 ];
 

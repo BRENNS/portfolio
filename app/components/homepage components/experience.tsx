@@ -1,163 +1,206 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
-import flatway from "@/app/assets/logoflatnew.png";
-import flatway_phone from "@/app/assets/phone_design.png";
-import flatway_computer from "@/app/assets/computer_design.png";
-import lettre from "@/app/assets/img.png";
-import facteur from "@/app/assets/facteur-1-lettre-1-sourire.gif";
+import flatway from "@/public/assets/logoflatnew.png";
+import flatway_phone from "@/public/assets/phone_design.png";
+import flatway_computer from "@/public/assets/computer_design.png";
+import lettre from "@/public/assets/img.png";
+import facteur from "@/public/assets/facteur-1-lettre-1-sourire.gif";
 import {
   react,
-  Html,
-  Css,
   typescript,
   tailwind,
   python,
   git,
   Docker,
   figma,
-} from "@/app/assets/languages";
-import { hexToRgba } from "@/app/utils/hex_to_rgba";
+} from "@/public/assets/languages";
 import { useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
 const Experience = () => {
   return (
-    <section
-      className={"experience h-full w-full flex flex-col gap-16 justify-center"}
-    >
-      <header className={"px-[20%] h-fit"}>
-        <h1 className={"text-4xl font-futura-bold whitespace-nowrap"}>
-          My experiences
-        </h1>
-      </header>
-      <section
-        className={"w-full h-full lg:h-3/4 flex flex-col lg:flex-row gap-4 p-4"}
-      >
-        <ExperienceCard
-          job={"Front-end developer"}
-          color={"#980000"}
-          picture={flatway}
-          url={"https://www.flatway.fr/"}
-          description={
-            "In this project, my role involved developing an interactive website using React, TypeScript, and Tailwind CSS. This included creating React components and utilizing TypeScript for better code management, integrating responsive styles with Tailwind CSS, and making API calls for data management. Additionally, I developed a desktop application using React, Electron, TypeScript, and Tailwind CSS. This involved using Electron for desktop deployment and implementing TypeScript to ensure robust code. I was responsible for selecting and implementing the appropriate technologies for both projects."
-          }
-          languages={[react, typescript, tailwind, figma, git, Docker]}
-        >
-          <span
-            className={"flex h-4/6 w-full items-center justify-center relative"}
-          >
-            <Image
-              src={flatway_phone}
-              alt={"flatway"}
-              className={"object-scale-down h-3/4 absolute bottom-0 left-10"}
-            />
-            <Image
-              src={flatway_computer}
-              alt={"flatway computer"}
-              className={"object-scale-down h-full"}
-            />
-          </span>
-        </ExperienceCard>
-        <ExperienceCard
-          color={"#f9d564"}
-          picture={lettre}
-          job={"Front-end developer"}
-          url={"https://1lettre1sourire.org/"}
-          description={
-            "In this project, my role involves maintaining and enhancing an interactive WordPress site. This includes creating letters directly on the site, integrating various participating organizations, and modifying components or plugins as needed. Additionally, I am part of a team responsible for redesigning the site using Python Flask, which involves creating new pages and structuring the project for better organization and scalability."
-          }
-          languages={[python]}
-        >
-          <Image
-            src={facteur}
-            alt={"facteur"}
-            className={"object-scale-down h-4/6"}
+    <section className="min-h-screen w-full flex flex-col justify-center py-16 px-4">
+      <div className="max-w-7xl mx-auto w-full">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-futura-bold text-shark-900 mb-4">
+            Mes expériences
+          </h1>
+          <div className="w-24 h-1 bg-shark-300 mx-auto rounded-full"></div>
+        </header>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          <ExperienceCard
+            company="Flatway"
+            job="Développeur Front-end"
+            period="2023 - 2024"
+            logo={flatway}
+            url="https://www.flatway.fr/"
+            description="Développement d'un site web interactif et d'une application desktop avec React, TypeScript et Tailwind CSS. Création de composants React, intégration d'API, et déploiement avec Electron."
+            technologies={[react, typescript, tailwind, figma, git, Docker]}
+            images={[flatway_computer, flatway_phone]}
+            color="bg-red-50 border-red-100"
+            accentColor="text-red-600"
           />
-        </ExperienceCard>
-      </section>
+
+          <ExperienceCard
+            company="1 Lettre 1 Sourire"
+            job="Développeur Front-end"
+            period="2023 - 2023"
+            logo={lettre}
+            url="https://1lettre1sourire.org/"
+            description="Maintenance et amélioration d'un site WordPress interactif. Développement de nouvelles fonctionnalités et refonte avec Python Flask pour une meilleure architecture."
+            technologies={[python]}
+            images={[facteur]}
+            color="bg-yellow-50 border-yellow-100"
+            accentColor="text-yellow-600"
+          />
+        </div>
+      </div>
     </section>
   );
 };
 
-const ExperienceCard = ({
-  color,
-  picture,
-  job,
-  children,
-  url,
-  description,
-  languages,
-}: {
-  color: string;
-  picture: {};
+interface ExperienceCardProps {
+  company: string;
   job: string;
-  children: JSX.Element;
+  period: string;
+  logo: any;
   url: string;
   description: string;
-  languages: {}[];
-}) => {
-  const colorWithOpacity = hexToRgba(color, 0.1);
-  const [isOpen, setIsOpen] = useState(false);
+  technologies: any[];
+  images: any[];
+  color: string;
+  accentColor: string;
+}
+
+const ExperienceCard = ({
+  company,
+  job,
+  period,
+  logo,
+  url,
+  description,
+  technologies,
+  images,
+  color,
+  accentColor,
+}: ExperienceCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <article
-      style={{ backgroundColor: colorWithOpacity }}
-      className={`lg:w-1/2 h-full flex flex-col relative justify-between overflow-hidden items-center p-16 rounded-lg`}
+    <div
+      className={`${color} border-2 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-lg`}
     >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`bg-slate-50 h-full w-full bg-opacity-50 backdrop-blur p-[10%] absolute flex-col justify-between top-0 z-20 ${!isOpen ? "hidden" : "flex"}`}
-      >
-        <p className={"font-futura-semi"}>{description}</p>
-        <ul className={"flex gap-4"}>
-          {languages.map((item, index) => (
-            <li key={index} className={"flex flex-col items-center"}>
-              <Image
-                src={item as string}
-                alt={index + "language"}
-                className={"h-14 w-14"}
-                width={"14"}
-                height={"14"}
-              />
-            </li>
-          ))}
-        </ul>
-      </button>
+      {/* Header */}
+      <div className="flex items-start justify-between mb-6">
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-white rounded-xl p-2 shadow-sm border border-shark-100">
+            <Image
+              src={logo}
+              alt={company}
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <div>
+            <h3 className="text-xl lg:text-2xl font-futura-bold text-shark-900">
+              {company}
+            </h3>
+            <p className={`font-futura-semi ${accentColor} text-lg`}>{job}</p>
+            <p className="font-futura text-shark-600 text-sm">{period}</p>
+          </div>
+        </div>
+      </div>
 
-      <header className={"h-1/6 flex flex-col gap-4 justify-center"}>
-        <Image
-          src={picture as string}
-          alt={job}
-          className={"h-[80%]  object-scale-down"}
-        />
-        <span className={"h-[20%] w-full flex flex-col gap-2 items-center"}>
-          <p className={"text-lg font-semibold"}>{job}</p>
-          <ul className={"flex items-center gap-4"}>
-            <li>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                style={{ backgroundColor: color }}
-                className={`button text-white`}
-              >
-                En savoir plus
-              </button>
-            </li>
-            <li>
-              <a
-                href={url}
-                target={"_blank"}
-                style={{ color: color, borderColor: color }}
-                className={`button_primary hover:bg-[${color}] h-auto hover:text-white`}
-              >
-                Visiter
-              </a>
-            </li>
-          </ul>
-        </span>
-      </header>
-      {children}
-    </article>
+      {/* Description */}
+      <div className="mb-6">
+        <p className="font-futura text-shark-700 leading-relaxed text-base lg:text-lg">
+          {description}
+        </p>
+      </div>
+
+      {/* Technologies */}
+      <div className="mb-6">
+        <h4 className="font-futura-semi text-shark-800 mb-3">
+          Technologies utilisées
+        </h4>
+        <div className="flex flex-wrap gap-3">
+          {technologies.map((tech, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-shark-100"
+            >
+              <Image
+                src={tech}
+                alt="Technology"
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Images Preview */}
+      <div className="mb-6">
+        <div className="h-40  p-4 flex items-center justify-center relative overflow-hidden">
+          {company === "Flatway" && (
+            <>
+              <Image
+                src={flatway_phone}
+                alt="Flatway mobile"
+                className="object-scale-down h-3/4 absolute bottom-0 left-4"
+              />
+              <Image
+                src={flatway_computer}
+                alt="Flatway desktop"
+                className="object-scale-down h-full"
+              />
+            </>
+          )}
+          {company === "1 Lettre 1 Sourire" && (
+            <Image
+              src={facteur}
+              alt="1 Lettre 1 Sourire"
+              className="object-scale-down h-4/6"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Actions */}
+      <div className="flex gap-3">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 bg-shark-900 hover:bg-shark-800 text-white font-futura-semi py-3 px-6 rounded-xl transition-all duration-300 text-center"
+        >
+          Visiter le site
+        </a>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="bg-white hover:bg-shark-50 text-shark-700 font-futura-semi py-3 px-6 rounded-xl border border-shark-200 transition-all duration-300"
+        >
+          {isExpanded ? "Moins" : "Plus"}
+        </button>
+      </div>
+
+      {/* Expanded Content */}
+      {isExpanded && (
+        <div className="mt-6 pt-6 border-t border-shark-200">
+          <div className="space-y-4">
+            <div>
+              <h5 className="font-futura-bold text-shark-800 mb-2">
+                Détails techniques
+              </h5>
+              <p className="font-futura text-shark-600 text-sm leading-relaxed">
+                Projet développé avec attention aux bonnes pratiques,
+                optimisation des performances et expérience utilisateur moderne.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

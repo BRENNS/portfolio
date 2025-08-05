@@ -5,7 +5,7 @@ import {
   projectPictures,
 } from "@/app/interfaces/projects";
 import Image, { StaticImageData } from "next/image";
-import * as assets from "@/app/assets/languages/index";
+import * as assets from "@/public/assets/languages/index";
 import { useRef, useState } from "react";
 
 const Projects = () => {
@@ -47,12 +47,10 @@ const Projects = () => {
 
   return (
     <section
-      className={
-        "h-screen lg:h-full w-full flex flex-col gap-16 justify-center"
-      }
+      className={"min-h-screen w-full flex flex-col gap-16 justify-center"}
     >
       <header className={"px-[20%] h-fit"}>
-        <h1 className={"text-4xl font-futura-bold"}>My projects</h1>
+        <h1 className={"text-4xl font-futura-bold"}>Mes projets</h1>
       </header>
       <section className={"h-3/4 lg:px-16"}>
         <DisplayFilter
