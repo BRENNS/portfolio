@@ -78,7 +78,7 @@ const Footer = () => {
 
               <p className="text-shark-700 font-futura leading-relaxed mb-4">
                 Passionné par le développement web moderne et la création
-                d'expériences utilisateur innovantes. Spécialisé en React,
+                d&apos;expériences utilisateur innovantes. Spécialisé en React,
                 TypeScript et solutions front-end performantes.
               </p>
 

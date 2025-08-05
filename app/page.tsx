@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "@/app/components/navbar";
-import IntroBackground from "@/app/components/intro.background";
 import Footer from "@/app/components/footer";
 import { SectionId } from "@/app/interfaces/section.id";
 import Intro from "@/app/components/homepage components/intro";
