@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "description": "Portfolio personnel avec style iOS utilisant Next.js, React, TypeScript et Tailwind CSS",
   "private": true,
   "scripts": {
     "dev": "next dev",
